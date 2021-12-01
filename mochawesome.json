@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-11-25T00:05:37.575Z",
+    "end": "2021-11-25T00:05:58.914Z",
+    "duration": 19126,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "69bcbf16-d2a4-4af5-958a-d828925fa5db",
+      "title": "",
+      "fullFile": "cypress/integration/3-aula-inatel/globalqa.spec.js",
+      "file": "cypress/integration/3-aula-inatel/globalqa.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4ecb9190-4bb2-4bba-93ed-e50f5fac4783",
+          "title": "Cenario de teste: Testar as funcionalidades de Login do site globalsqa.",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Caso de teste: Registrar um usuario com sucesso",
+              "fullTitle": "Cenario de teste: Testar as funcionalidades de Login do site globalsqa. Caso de teste: Registrar um usuario com sucesso",
+              "timedOut": null,
+              "duration": 4958,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://globalsqa.com/angularJs-protractor/registration-login-example/#/login');\ncy.get('.btn-link').click();\ncy.get('#firstName').type('meunome');\ncy.get('#Text1').type('meuultimonome');\ncy.get('#username').type('meulogin');\ncy.get('#password').type('minhasenha');\ncy.get('.btn-primary').click();\ncy.get('.ng-binding').should('have.text', 'Registration successful');",
+              "err": {},
+              "uuid": "98162fc4-c0f1-45af-9879-602816437dd2",
+              "parentUUID": "4ecb9190-4bb2-4bba-93ed-e50f5fac4783",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Caso de teste: Falha ao tentar cadastrar um usuario com campo vazio",
+              "fullTitle": "Cenario de teste: Testar as funcionalidades de Login do site globalsqa. Caso de teste: Falha ao tentar cadastrar um usuario com campo vazio",
+              "timedOut": null,
+              "duration": 1802,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://globalsqa.com/angularJs-protractor/registration-login-example/#/register');\ncy.get('#firstName').type('meunome');\ncy.get('#Text1').type('meuultimonome');\ncy.get('#username').type('meulogin');\ncy.get('#password').type('minhasenha');\ncy.get('#firstName').clear();\ncy.get('.has-error > .help-block').should('have.text', 'First name is required');\ncy.get('.btn-primary').should('be.disabled');",
+              "err": {},
+              "uuid": "99be6776-3ae9-4b08-8470-4852defb99cf",
+              "parentUUID": "4ecb9190-4bb2-4bba-93ed-e50f5fac4783",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Caso de teste: Login na plataforma com sucesso",
+              "fullTitle": "Cenario de teste: Testar as funcionalidades de Login do site globalsqa. Caso de teste: Login na plataforma com sucesso",
+              "timedOut": null,
+              "duration": 5156,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var user = criarUsuario();\ncy.visit('https://globalsqa.com/angularJs-protractor/registration-login-example/#/login');\ncy.get('#username').type(user[2]);\ncy.get('#password').type(user[3]);\ncy.get('.btn-primary').click();\ncy.get('h1.ng-binding').should('have.text', 'Hi ' + user[0] + '!');",
+              "err": {},
+              "uuid": "f3f5aed9-928b-4223-a946-11e104e03c05",
+              "parentUUID": "4ecb9190-4bb2-4bba-93ed-e50f5fac4783",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Caso de teste: Remover um usuario cadastrado e verificar",
+              "fullTitle": "Cenario de teste: Testar as funcionalidades de Login do site globalsqa. Caso de teste: Remover um usuario cadastrado e verificar",
+              "timedOut": null,
+              "duration": 7210,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var user = criarUsuario();\ncy.loginNinjaQa(user[2], user[3]);\ncy.get('.ng-binding > a').click();\ncy.get('.ng-binding').should('have.text', 'Hi !');\ncy.get('.btn').click();\ncy.get('h2').should('have.text', 'Login');\ncy.loginNinjaQa(user[2], user[3]);\ncy.get('.ng-binding').should('have.text', 'Username or password is incorrect');",
+              "err": {},
+              "uuid": "83e35ec2-bcfd-4189-bedd-cfe06a195bb4",
+              "parentUUID": "4ecb9190-4bb2-4bba-93ed-e50f5fac4783",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "98162fc4-c0f1-45af-9879-602816437dd2",
+            "99be6776-3ae9-4b08-8470-4852defb99cf",
+            "f3f5aed9-928b-4223-a946-11e104e03c05",
+            "83e35ec2-bcfd-4189-bedd-cfe06a195bb4"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 19126,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.0.1"
+    }
+  }
+}

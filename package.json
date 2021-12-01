@@ -6,7 +6,11 @@
   "version": "1.0.0",
   "description": "teste inatel",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "mochawesome": "^7.0.1",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^6.0.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

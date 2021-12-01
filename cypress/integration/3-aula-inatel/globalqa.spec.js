@@ -1,7 +1,7 @@
 /// <reference types="cypress"/>
 
 describe('Cenario de teste: Testar as funcionalidades de Login do site globalsqa.', () => {
-    it.skip ('Caso de teste: Registrar um usuario com sucesso', () => {
+    it ('Caso de teste: Registrar um usuario com sucesso', () => {
         cy.visit('https://globalsqa.com/angularJs-protractor/registration-login-example/#/login');
         cy.get('.btn-link').click();
         cy.get('#firstName').type('meunome');
@@ -13,7 +13,7 @@ describe('Cenario de teste: Testar as funcionalidades de Login do site globalsqa
 
     })
 
-    it.skip ('Caso de teste: Falha ao tentar cadastrar um usuario com campo vazio', () => {
+    it ('Caso de teste: Falha ao tentar cadastrar um usuario com campo vazio', () => {
         cy.visit('https://globalsqa.com/angularJs-protractor/registration-login-example/#/register');
         cy.get('#firstName').type('meunome');
         cy.get('#Text1').type('meuultimonome');
@@ -25,13 +25,23 @@ describe('Cenario de teste: Testar as funcionalidades de Login do site globalsqa
     })
 
     it ('Caso de teste: Login na plataforma com sucesso', () => {
-        cy.visit('https://globalsqa.com/angularJs-protractor/registration-login-example/#/login');
         var user = criarUsuario();
+        cy.visit('https://globalsqa.com/angularJs-protractor/registration-login-example/#/login');
         cy.get('#username').type(user[2]);
         cy.get('#password').type(user[3]);
         cy.get('.btn-primary').click();
         cy.get('h1.ng-binding').should('have.text', 'Hi ' + user[0] + '!' )
-        //Hi 17839_userName!
+    })
+
+    it ('Caso de teste: Remover um usuario cadastrado e verificar', () => {
+        var user = criarUsuario();
+        cy.loginNinjaQa(user[2], user[3]);
+        cy.get('.ng-binding > a').click();
+        cy.get('.ng-binding').should('have.text', 'Hi !');
+        cy.get('.btn').click();
+        cy.get('h2').should('have.text', 'Login')
+        cy.loginNinjaQa(user[2], user[3]);
+        cy.get('.ng-binding').should('have.text', 'Username or password is incorrect');
     })
 })
 
